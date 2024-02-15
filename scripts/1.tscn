@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cybqasubwj023"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_4fyx2"]
+[ext_resource type="Texture2D" uid="uid://bjergopx7i83a" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/blue-balloon/1.png" id="1_hcwrk"]
+[ext_resource type="AudioStream" uid="uid://nqpkosjwie5j" path="res://audio/funk-lead-loop-71557.mp3" id="3_fyyxh"]
+[ext_resource type="AudioStream" uid="uid://b3p2cguho7327" path="res://audio/balloon-pop-2-190091.mp3" id="4_ayjrt"]
+[ext_resource type="AudioStream" uid="uid://nbdmdq55tr13" path="res://audio/coin-and-money-bag-4-185265.mp3" id="5_f8tad"]
+[ext_resource type="AudioStream" uid="uid://bha85bm87vxyv" path="res://audio/balloon-inflate-1-184052 (mp3cut.net).mp3" id="6_o7ba4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4fyx2")
+
+[node name="Balloon" type="Sprite2D" parent="."]
+position = Vector2(546, 319)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_hcwrk")
+
+[node name="PumpButton" type="Button" parent="."]
+offset_left = 909.0
+offset_top = 513.0
+offset_right = 1123.0
+offset_bottom = 631.0
+text = "Pump"
+
+[node name="SellButton" type="Button" parent="."]
+offset_left = 21.0
+offset_top = 496.0
+offset_right = 250.0
+offset_bottom = 631.0
+size_flags_horizontal = 3
+text = "Sell"
+
+[node name="BgAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fyyxh")
+autoplay = true
+
+[node name="TotalProfit" type="RichTextLabel" parent="."]
+offset_right = 296.0
+offset_bottom = 123.0
+text = "Total Profit: {}
+Balloons Left: {}"
+
+[node name="CurrentBalloonValue" type="RichTextLabel" parent="."]
+offset_left = 899.0
+offset_top = 15.0
+offset_right = 1134.0
+offset_bottom = 122.0
+text = "Current Balloon Value: {}"
+
+[node name="BalloonPopAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ayjrt")
+
+[node name="BalloonSellAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_f8tad")
+
+[node name="BalloonPumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_o7ba4")
+
+[connection signal="pressed" from="PumpButton" to="." method="_on_pump_button_pressed"]
+[connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
