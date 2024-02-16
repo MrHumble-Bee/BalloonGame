@@ -1,4 +1,5 @@
-extends Node2D
+#extends Node2D
+extends Control
 
 const GAME_ROUNDS = 30
 const prob_of_pop = 0.03
@@ -24,8 +25,8 @@ func _ready():
 	$BgAudio.play()
 	sprite_node = $Balloon
 	initial_balloon_size = sprite_node.scale
-	game_data = $TotalProfit
-	balloon_data = $CurrentBalloonValue
+	game_data = $TopLeftDataContainer/TotalProfit
+	balloon_data = $TopRightDataContainer/CurrentBalloonValue
 	#print(pop_data)
 	
 	# Set the text content using BBCode

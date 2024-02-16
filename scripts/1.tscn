@@ -8,47 +8,18 @@
 [ext_resource type="AudioStream" uid="uid://bha85bm87vxyv" path="res://audio/balloon-inflate-1-184052 (mp3cut.net).mp3" id="6_o7ba4"]
 [ext_resource type="Script" path="res://scripts/pop_data.gd" id="7_tmne0"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_4fyx2")
-
-[node name="Balloon" type="Sprite2D" parent="."]
-position = Vector2(546, 319)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_hcwrk")
-
-[node name="PumpButton" type="Button" parent="."]
-offset_left = 909.0
-offset_top = 513.0
-offset_right = 1123.0
-offset_bottom = 631.0
-text = "Pump"
-
-[node name="SellButton" type="Button" parent="."]
-offset_left = 21.0
-offset_top = 496.0
-offset_right = 250.0
-offset_bottom = 631.0
-size_flags_horizontal = 3
-text = "Sell"
 
 [node name="BgAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fyyxh")
 autoplay = true
-
-[node name="TotalProfit" type="RichTextLabel" parent="."]
-offset_left = 24.0
-offset_top = 20.0
-offset_right = 320.0
-offset_bottom = 143.0
-text = "Total Profit: {}
-Balloons Left: {}"
-
-[node name="CurrentBalloonValue" type="RichTextLabel" parent="."]
-offset_left = 899.0
-offset_top = 15.0
-offset_right = 1134.0
-offset_bottom = 122.0
-text = "Current Balloon Value: {}"
 
 [node name="BalloonPopAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ayjrt")
@@ -60,7 +31,7 @@ stream = ExtResource("5_f8tad")
 stream = ExtResource("6_o7ba4")
 
 [node name="PopDataDisplay" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_left = 44.0
 offset_top = 136.0
@@ -68,5 +39,82 @@ offset_right = 376.0
 offset_bottom = 402.0
 script = ExtResource("7_tmne0")
 
-[connection signal="pressed" from="PumpButton" to="." method="_on_pump_button_pressed"]
-[connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
+[node name="SellButtonContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -148.0
+offset_right = 260.0
+offset_bottom = -28.0
+grow_vertical = 0
+
+[node name="SellButton" type="Button" parent="SellButtonContainer"]
+layout_direction = 1
+layout_mode = 2
+text = "Sell"
+
+[node name="PumpButtonContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -252.0
+offset_top = -147.0
+offset_right = -12.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PumpButton" type="Button" parent="PumpButtonContainer"]
+layout_mode = 2
+text = "Pump"
+
+[node name="BalloonContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLeftDataContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 260.0
+offset_bottom = 150.0
+
+[node name="TotalProfit" type="RichTextLabel" parent="TopLeftDataContainer"]
+layout_mode = 2
+text = "Total Profit: {}
+Balloons Left: {}"
+
+[node name="TopRightDataContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 30.0
+offset_right = 1140.0
+offset_bottom = 150.0
+
+[node name="CurrentBalloonValue" type="RichTextLabel" parent="TopRightDataContainer"]
+layout_mode = 2
+text = "Current Balloon Value: {}"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 250.0
+offset_right = 260.0
+offset_bottom = 370.0
+
+[node name="Balloon" type="Sprite2D" parent="."]
+position = Vector2(550, 300)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_hcwrk")
+
+[connection signal="pressed" from="SellButtonContainer/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="PumpButtonContainer/PumpButton" to="." method="_on_pump_button_pressed"]
