@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvsnamyu8emy7"]
+
+[ext_resource type="Script" path="res://scripts/end_of_level.gd" id="1_2y2od"]
+[ext_resource type="FontFile" uid="uid://dipumqrecwc7m" path="res://fonts/Poppins-Black.ttf" id="2_e05gw"]
+
+[node name="EndOfLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2y2od")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.921569, 0.921569, 0.921569, 1)
+self_modulate = Color(1, 1, 1, 0.921569)
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SummaryStats" type="RichTextLabel" parent="ColorRect"]
+modulate = Color(0.309804, 0.631373, 0.478431, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_e05gw")
+theme_override_font_sizes/normal_font_size = 20
+text = "End of Day 1!
+
+Balloon Sales Statistics:"

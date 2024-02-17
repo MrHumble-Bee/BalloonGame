@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxjo1shrwk3qd"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_fv1o1"]
+[ext_resource type="FontFile" uid="uid://cmrw3w8yjow5e" path="res://fonts/BalloonDreams-BW1Kw.otf" id="2_lxy8k"]
+[ext_resource type="FontFile" uid="uid://dipumqrecwc7m" path="res://fonts/Poppins-Black.ttf" id="2_vhf7a"]
+[ext_resource type="Texture2D" uid="uid://bjergopx7i83a" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/blue-balloon/1.png" id="3_r6xe6"]
+[ext_resource type="Texture2D" uid="uid://cfejqx2fmicyl" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/green-balloon/1.png" id="4_hqbn2"]
+[ext_resource type="Texture2D" uid="uid://dwopi3pliyl5a" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/red-balloon/1.png" id="5_tscej"]
+[ext_resource type="Texture2D" uid="uid://biocjlid7rpro" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/orange-balloon/1.png" id="6_843t7"]
+[ext_resource type="Texture2D" uid="uid://d2oykxh3h7442" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/purple-balloon/1.png" id="7_aulh2"]
+[ext_resource type="Texture2D" uid="uid://dp4dqd6c5il5j" path="res://Balloonpoppinganimation--1g4a618w313b0r3t2n/pink-ballon/1.png" id="8_dlgic"]
+[ext_resource type="AudioStream" uid="uid://bjf0hgiaktelq" path="res://audio/energetic-hip-hop-8303.mp3" id="9_80271"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hxrlb"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fv1o1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="."]
+modulate = Color(0.309804, 0.631373, 0.478431, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.261
+anchor_right = 0.74
+anchor_bottom = 0.352
+offset_left = 0.328003
+offset_top = 32.0
+offset_right = 0.52002
+offset_bottom = -0.0960236
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_lxy8k")
+theme_override_fonts/bold_font = ExtResource("2_lxy8k")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "WELCOME TO
+BALLOON SHOPPE!!!!!"
+
+[node name="PlayButton" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_hxrlb")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -74.0
+offset_right = 120.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.309804, 0.631373, 0.478431, 1)
+theme_override_colors/font_hover_color = Color(0.388235, 0.74902, 0.576471, 1)
+theme_override_fonts/font = ExtResource("2_vhf7a")
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_hxrlb")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 76.0
+offset_right = 120.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.309804, 0.631373, 0.478431, 1)
+theme_override_colors/font_hover_color = Color(0.388235, 0.74902, 0.576471, 1)
+theme_override_fonts/font = ExtResource("2_vhf7a")
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="BalloonImg" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.3
+anchor_right = 0.3
+anchor_bottom = 0.6
+offset_right = 0.47998
+offset_bottom = -0.288025
+grow_vertical = 2
+
+[node name="1" type="Sprite2D" parent="BalloonImg"]
+position = Vector2(146, 98.6)
+rotation = -0.610865
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_r6xe6")
+
+[node name="2" type="Sprite2D" parent="BalloonImg"]
+position = Vector2(191, 66.6)
+rotation = -0.0506145
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("4_hqbn2")
+
+[node name="3" type="Sprite2D" parent="BalloonImg"]
+position = Vector2(241, 109.6)
+rotation = 0.408407
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_tscej")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.921569, 0.921569, 0.921569, 1)
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftBalloonImg" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="1" type="Sprite2D" parent="LeftBalloonImg"]
+position = Vector2(81.6, 68.6)
+rotation = -0.507891
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_843t7")
+
+[node name="3" type="Sprite2D" parent="LeftBalloonImg"]
+position = Vector2(138.6, 138.6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_aulh2")
+
+[node name="2" type="Sprite2D" parent="LeftBalloonImg"]
+position = Vector2(152.6, 13.6)
+rotation = 0.204204
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_dlgic")
+
+[node name="BgAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_80271")
+volume_db = -7.0
+autoplay = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
